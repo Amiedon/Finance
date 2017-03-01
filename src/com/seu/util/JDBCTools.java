@@ -34,7 +34,7 @@ public class JDBCTools {
         String password="";
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url,username,password);
-        System.out.println("success！");
+        //System.out.println("success！");
         return connection;
     }
 

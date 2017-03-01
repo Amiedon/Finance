@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Amie on 2017/3/1.
@@ -21,11 +24,19 @@ public class RegisterAction extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=utf-8");
         /*PrintWriter out = response.getWriter();*/
-        String username = request.getParameter("username");
+
+       /* String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         System.out.println("username = " + username + "  email = " + email
+                +" password = " + password);*/
+
+        String username = request.getParameter("user");
+        String email = request.getParameter("email");
+        String password = request.getParameter("passwd");
+        System.out.println("username = " + username + "  email = " + email
                 +" password = " + password);
+
         User user = new User();
         UserDao userDao = new UserDaoImpl();
         user.setUserName(username);
@@ -37,6 +48,10 @@ public class RegisterAction extends HttpServlet {
             System.out.println("数据插入成功！");
         }
         else System.out.println("数据插入失败！");
+
+        List<User> list;
+        list = userDao.findSimpleResult("select * from user where username = ?",123);
+        System.out.println(list);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
