@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - register@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="register">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="imooc"/>
+    <schema id="3" name="information_schema"/>
+    <schema id="4" name="jfinal_demo"/>
+    <schema id="5" name="mysql"/>
+    <schema id="6" name="performance_schema"/>
+    <schema id="7" name="school"/>
+    <schema id="8" name="shopping"/>
+    <schema id="9" name="teacher"/>
+    <schema id="10" name="test"/>
+    <schema id="11" name="xblog"/>
+    <table id="12" parent="1" name="user"/>
+    <table id="13" parent="1" name="userinfo"/>
+    <column id="14" parent="12" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="15" parent="12" name="userName">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="16" parent="12" name="password">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="17" parent="12" name="email">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="18" parent="12" name="photo">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="19" parent="12" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="20" parent="13" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="21" parent="13" name="username">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="22" parent="13" name="password">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="23" parent="13" name="email">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="24" parent="13" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
