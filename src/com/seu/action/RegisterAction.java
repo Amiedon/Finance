@@ -58,7 +58,10 @@ public class RegisterAction extends HttpServlet {
 
         try {
             MailUtils.sendMail(user.getEmail(),user.getCode());
-            System.out.println("请去邮箱验证");
+            System.out.println("请去邮箱激活");
+            request.setAttribute("from","register");
+            request.setAttribute("msg","You have successfully registered, please go to the mailbox and activate your account");
+            request.getRequestDispatcher("../html/msg.jsp").forward(request,response);
         } catch (MessagingException e) {
             e.printStackTrace();
         }

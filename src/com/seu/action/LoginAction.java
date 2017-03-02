@@ -21,7 +21,6 @@ public class LoginAction extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=utf-8");
-
         String username = request.getParameter("username");
         String password = request.getParameter("userpwd");
         List<User> list;
@@ -34,15 +33,15 @@ public class LoginAction extends HttpServlet {
                 System.out.println("登录失败，请检查用户名和密码");
                 PrintWriter out = response.getWriter();
                 out.println("登录失败，请检查用户名和密码 ");
-                boolean flag = false;
-                request.setAttribute("log_flag", flag);
-                request.getRequestDispatcher("../html/login.jsp").forward(request, response);
+                request.setAttribute("from","login");
+                request.getRequestDispatcher("../html/msg.jsp").forward(request, response);
             }
         }
         else
         {
             System.out.println("登录失败，请检查用户名和密码");
-            request.getRequestDispatcher("../html/login.jsp").forward(request, response);
+            request.setAttribute("from","login");
+            request.getRequestDispatcher("../html/msg.jsp").forward(request, response);
         }
     }
 
