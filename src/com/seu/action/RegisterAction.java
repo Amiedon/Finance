@@ -3,7 +3,10 @@ package com.seu.action;
 import com.seu.dao.UserDao;
 import com.seu.dao.impl.UserDaoImpl;
 import com.seu.entity.User;
+import com.seu.util.MailUtils;
+import com.seu.util.UUIDUtils;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,28 +33,35 @@ public class RegisterAction extends HttpServlet {
         String password = request.getParameter("password");
         System.out.println("username = " + username + "  email = " + email
                 +" password = " + password);*/
-
+        //  接受数据
         String username = request.getParameter("user");
         String email = request.getParameter("email");
         String password = request.getParameter("passwd");
         System.out.println("username = " + username + "  email = " + email
                 +" password = " + password);
-
+        //封装数据
         User user = new User();
         UserDao userDao = new UserDaoImpl();
         user.setUserName(username);
         user.setPassword(password);
         user.setEmail(email);
         user.setPhoto("test");
+        user.setState(0);//0: 未激活 1： 已激活
+        String code = UUIDUtils.getUUID()+UUIDUtils.getUUID();//64位激活码
+        user.setCode(code);
+        //调用业务层处理数据
         if (userDao.add(user))
         {
             System.out.println("数据插入成功！");
         }
         else System.out.println("数据插入失败！");
 
-        List<User> list;
-        list = userDao.findSimpleResult("select * from user where username = ?",123);
-        System.out.println(list);
+        try {
+            MailUtils.sendMail(user.getEmail(),user.getCode());
+            System.out.println("请去邮箱验证");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

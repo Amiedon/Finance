@@ -24,15 +24,14 @@ public class LoginAction extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("userpwd");
-        /*System.out.println(username+"------"+password);*/
         List<User> list;
         UserDao userDao = new UserDaoImpl();
         list = userDao.findSimpleResult("select * from user where username = ?",username);
         if(list.size()!=0) {
-            if (password.equals(list.get(0).getPassword())) {
-                System.out.println("密码正确");
+            if ((password.equals(list.get(0).getPassword())) && (list.get(0).getState()!=0)) {
+                System.out.println("登录成功!");
             } else {
-                System.out.println("密码错误");
+                System.out.println("登录失败，请检查用户名和密码");
                 PrintWriter out = response.getWriter();
                 out.println("登录失败，请检查用户名和密码 ");
                 boolean flag = false;

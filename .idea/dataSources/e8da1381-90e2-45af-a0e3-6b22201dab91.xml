@@ -33,25 +33,31 @@
     <column id="18" parent="12" name="photo">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <key id="19" parent="12" name="PRIMARY">
+    <column id="19" parent="12" name="state">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="20" parent="12" name="code">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="21" parent="12" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="20" parent="13" name="id">
+    <column id="22" parent="13" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="21" parent="13" name="username">
+    <column id="23" parent="13" name="username">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="22" parent="13" name="password">
+    <column id="24" parent="13" name="password">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="23" parent="13" name="email">
+    <column id="25" parent="13" name="email">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <key id="24" parent="13" name="PRIMARY">
+    <key id="26" parent="13" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>

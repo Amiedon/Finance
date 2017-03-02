@@ -177,7 +177,7 @@
                         <li>
                             <label for="email" class="input-tips2">Email</label>
                             <div class="inputOuter2">
-                                <input type="text" id="email" name="email" maxlength="16" class="inputstyle2">
+                                <input type="text" id="email" name="email" maxlength="25" class="inputstyle2">
                             </div>
                         </li>
                         <li>
