@@ -280,22 +280,6 @@ float:left;
 	text-decoration: none;
 	border-bottom-color: #000000;
 }
-#wrap #main #sidebar .sidebartop .normalmenu a:visited, active {
-	display: block;
-	height: 20px;
-	padding-top: 5px;
-	padding-left: 5px;
-	color: #A2816D;
-	text-decoration: none;
-	border-bottom-color: #000000;
-}
-#wrap #main #content a:visited, active {
-	color: #993300;
-}
-#wrap #main #content a:hover {
-	color: #000000;
-	text-decoration: none;
-}
 #wrap #footer {
 	background : url(../img/footer.jpg) no-repeat center top;
 	padding: 25px 15px 15px 15px;
@@ -318,13 +302,7 @@ float:left;
 #wrap #main #sidebar .sidebarcontent  a {
 	color: #990000;
 }
-#wrap #main #sidebar .sidebarcontent a:visited, active {
-	color: #990000;
-}
-#wrap #main #sidebar .sidebarcontent a:hover {
-	color: #000000;
-	text-decoration: none;
-}
+
 #wrap #main #content .post blockquote {
 	font-size: 16px;
 	font-family: Georgia, "Times New Roman", Times, serif;
