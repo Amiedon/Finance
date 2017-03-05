@@ -4,6 +4,8 @@ import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Properties;
 
 /**
@@ -51,8 +53,15 @@ public class MailUtils {
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(FROM));
         message.setRecipient(Message.RecipientType.TO,new InternetAddress(to));
+        InetAddress addr = null;
+        try {
+            addr = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        String ip=addr.getHostAddress().toString();//获得本机IP
         message.setSubject("来自校园金融的激活邮件");
-        message.setContent("<h1>来自校园金融的激活邮件,激活请点击以下链接：</h1><h3><a href='http://localhost:8080/Finance/servlet/ActiveServlet?code="+code+"'>http://localhost:8080/Finance/servlet/ActiveServlet?code="+code+"</a></h3>","text/html;charset=UTF-8");
+        message.setContent("<h1>来自校园金融的激活邮件,激活请点击以下链接：</h1><h3><a href='http://"+ip+":8080/Finance/servlet/ActiveServlet?code="+code+"'>http://"+ip+":8080/Finance/servlet/ActiveServlet?code="+code+"</a></h3>","text/html;charset=UTF-8");
         Transport.send(message);
         //0.邮箱服务器的用户名 密码
         /*String E_username="";

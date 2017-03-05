@@ -29,6 +29,7 @@ public class LoginAction extends HttpServlet {
         if(list.size()!=0) {
             if ((password.equals(list.get(0).getPassword())) && (list.get(0).getState()!=0)) {
                 System.out.println("登录成功!");
+                request.getRequestDispatcher("../html/index.html").forward(request,response);
             } else {
                 System.out.println("登录失败，请检查用户名和密码");
                 PrintWriter out = response.getWriter();

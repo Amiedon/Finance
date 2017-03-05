@@ -10,6 +10,10 @@
             msg = "您已成功注册，请登录邮箱激活账号";break;
         case "login":
             msg = "用户名或密码错误，请重新输入！";break;
+        case "activate_true":
+            msg = "您已激活，请返回登录！";break;
+        case "activate_false":
+            msg = "激活不成功，请重新激活！";break;
         default:
             msg = "未知错误，请返回登录！";
     }

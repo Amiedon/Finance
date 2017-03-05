@@ -32,12 +32,16 @@ public class ActiveServlet extends HttpServlet {
             list.get(0).setCode(null);
             userDao.change(list.get(0));//更新用户数据表
             System.out.println("已经激活");
+            request.setAttribute("from","activate_true");
             //跳转成功激活页面
+            request.getRequestDispatcher("../html/msg.jsp").forward(request,response);
         }
         else{
             //激活码有误
             System.out.println("激活码有误");
+            request.setAttribute("from","activate_false");
             //跳转错误页面
+            request.getRequestDispatcher("../html/msg.jsp").forward(request,response);
         }
     }
 

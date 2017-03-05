@@ -1,0 +1,25 @@
+/* CSS Document */
+
+body {
+	background: #E6E0D2 url(../img/bg.jpg) repeat;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	}
+#content{
+	margin-left:200px;
+	margin-top:150px;
+	width:300px;
+	}
+	#content div{margin-bottom :20px}
+	#content input{
+	margin-left:15px;
+	}
+	#content .money{
+	width:80px; height:19px}
+	#content h3{ margin-bottom:30px}
+	#content .button{
+	width:60px;hight:90px; margin:20px 0px 0px 55px; font-size:14px}
+	#content .dropdown{
+	margin-left:8px;width:80px; height:25px}
+	#content .comment{ margin-left:8px;}
+	#content .consume{ margin-left:48px}
