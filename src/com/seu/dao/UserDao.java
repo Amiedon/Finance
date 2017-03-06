@@ -16,4 +16,5 @@ public interface UserDao {
     public boolean change(User user);
     public List<User> select();
     public List<User> findSimpleResult(String sql, Object...args);
+    /*public boolean creatTable(User user);*/
 }

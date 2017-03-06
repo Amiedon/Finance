@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -91,6 +92,15 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> select() {
         List<User> list=new ArrayList<>();
+        try {
+            connection=JDBCTools.getConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         String sql="select * from user";
         Object[] objects={};
         resultSet=JDBCTools.query(sql,objects);
@@ -149,4 +159,25 @@ public class UserDaoImpl implements UserDao {
         }
         return list;
     }
+
+   /* @Override
+    public boolean creatTable(User user) {
+        try {
+            connection=JDBCTools.getConnection();
+            Statement stat = connection.createStatement();
+            String sqlInTemp = "create table TableName(id int, billTime datetime, category varchar(255), money varchar(255), note varchar(255))";
+            String sqlIn = sqlInTemp.replace("TableName", "payin"+user.getId());
+            stat.executeUpdate(sqlIn);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            JDBCTools.releaseDB(null,null,connection);
+        }
+        return true;
+    }*/
 }
