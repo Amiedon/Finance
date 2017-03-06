@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="../css/bootstrap.css" rel="stylesheet"><!--三级菜单样式-->
+<link href="../css/mega-menu.css" rel="stylesheet"><!-- Mega Menu Style，三级菜单样式 -->
+<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script><!--日历脚本-->
+<script src="http://code.jquery.com/jquery-latest.js"></script><!--消费分类三级菜单脚本-->
+<script src="../js/bootstrap.min.js"></script><!--消费分类三级菜单脚本-->
+<script type="text/javascript">
+	 function selected(x){//点击标签的js脚本
+	  
+		var labelvaule=document.getElementById("labelvalue");
+		var labellist=document.getElementsByTagName("li");
+		labelvalue.value=labellist[x].innerHTML;
+	}
+</script>
+<link href="../css/viewAccounts.css" rel="stylesheet">
+</head>
+<body>
+	<div id="content">
+		<div id="viewselect">
+			<div class="selecttitle">
+			<input type="radio" name="selectmethod" checked="checked" value="method1" class="method1"/>筛选查询
+			<input type="radio" name="selectmethod" value="method2" class="method2"/>统计查询
+			</div>
+			<div class="selectcolumn">
+				日期<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">
+				标签
+				<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="labelvalue">点击选择标签</span><b class="caret"></b></a>
+				<section class="dropdown-menu mega-menu-2 transition">
+					<ul class="add-bottom-space">
+						<li class="nav-title">餐饮</li>
+						<a href="#"><li onclick="selected(1)">早晚午餐</li></a>
+						<a href="#"><li onclick="selected(2)">休闲聚餐</li></a>
+						<a href="#"><li onclick="selected(3)">水果零食</li></a>
+						<a href="#"><li onclick="selected(4)">其他餐饮</li></a>
+					</ul>
+					<ul class="add-bottom-space">
+						<li class="nav-title">运动交通</li>
+						<a href="#"><li onclick="selected(6)">公共交通</li></a>
+						<a href="#"><li onclick="selected(7)">打车租车</li></a>
+						<a href="#"><li onclick="selected(8)">运动健身</li></a>
+						<a href="#"><li onclick="selected(9)">旅行度假</li></a>
+					</ul>
+					<ul class="add-bottom-space">
+						<li class="nav-title">生活服务</li>
+						<a href="#"><li onclick="selected(11)">水电煤气</li></a>
+						<a href="#"><li onclick="selected(12)">学习培训</li></a>
+						<a href="#"><li onclick="selected(13)">通信上网</li></a>
+						<a href="#"><li onclick="selected(14)">邮寄快递</li></a>
+						<a href="#"><li onclick="selected(15)">宠物宝贝</li></a>
+					</ul>
+					<ul class="add-bottom-space">
+					    <li class="nav-title">购物消费</li>
+						<a href="#"><li onclick="selected(17)">数码设备</li></a>
+						<a href="#"><li onclick="selected(18)">化妆饰品</li></a>
+						<a href="#"><li onclick="selected(19)">衣服鞋帽</li></a>
+						<a href="#"><li onclick="selected(20)">日常用品</li></a>
+					</ul>
+					<ul class="add-bottom-space">
+						<li class="nav-title"></li>
+						<a href="#"><li onclick="selected(22)">其他</li></a>
+						
+					</ul>
+				</section>
+				</span><!-- Regular Menu Ends -->
+			</div>
+			<div class="selectcolumn">
+				起止时间：<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">~<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">
+			</div>
+		</div>
+		<div id="viewcontent">
+		</div>
+		<div id="changepage">
+			<span class="previous"><a href="#">previous</a></span>
+			<span class="next"><a href="#">next</a></span>
+		</div>
+	</div>
+</body>
+</html>
