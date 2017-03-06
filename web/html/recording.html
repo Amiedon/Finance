@@ -16,7 +16,7 @@
 	  
 		var lablevaule=document.getElementById("lablevalue");
 		var lablelist=document.getElementsByTagName("li");
-		lablevalue.innerHTML=lablelist[x].innerHTML;
+		lablevalue.value=lablelist[x].innerHTML;
 	}
 	function check()
 	{
@@ -26,9 +26,9 @@
 		var billMoney=bill[3];
 		var showStr="";
 		if(billDate.value==""){
-			showStr+="日期 ";
+			showStr+="“日期” ";
 		}
-		if("点击添加标签"==billLable.innerHTML){
+		if("点击添加标签"==billLable.value){
 			showStr+="“标签”";
 		}
 		var reg=/^\d{1,}\.*\d{1,}$/;
@@ -44,16 +44,26 @@
 			return true;
 			
 	}
+	function payselected()
+	{
+		var lableadd=document.getElementById("lablevalue");
+		lableadd.removeAttribute("disabled");
+	}
+	function incomeselected()
+	{
+		var lableadd=document.getElementById("lablevalue");
+		lableadd.disabled="disabled";
+	}
 </script>
 <body>
 <div id="content">
 	<form id="bill" method="post" onsubmit="return check()">
 		<h3 align="center">添加账目</h3>
-		<div><input type="radio" checked="checked" name="consume" value="consume" class="consume"/>支出
-		<input type="radio" name="consume" value="income" class="consume"/>收入</div>
+		<div><input onclick="payselected()" type="radio" checked="checked" name="consume" value="consume" class="consume"/>支出
+		<input onclick="incomeselected()" type="radio" name="consume" value="income" class="consume"/>收入</div>
 		<div><lable>日期：</label><input class="Wdate" type="text" onClick="WdatePicker()"></div><!--将日期记录加特效-->
 		<div><lable>标签：</label>
-			<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="lablevalue">点击添加标签</span><b class="caret"></b></a>
+			<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><input type="button" id="lablevalue" value="点击添加标签" dis></input></a>
 				<section class="dropdown-menu mega-menu-2 transition">
 					<ul class="add-bottom-space">
 						<li class="nav-title">餐饮</li>
