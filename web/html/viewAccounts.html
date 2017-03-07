@@ -10,10 +10,23 @@
 <script src="../js/bootstrap.min.js"></script><!--消费分类三级菜单脚本-->
 <script type="text/javascript">
 	 function selected(x){//点击标签的js脚本
-	  
 		var labelvaule=document.getElementById("labelvalue");
 		var labellist=document.getElementsByTagName("li");
-		labelvalue.value=labellist[x].innerHTML;
+		labelvalue.innerHTML=labellist[x].innerHTML;
+	}
+	function consumeselect(){
+		var sel=document.getElementsByTagName("select")[0];
+		var labelselect=document.getElementById("labelvalue");
+		if(sel.name=="i")
+		{
+			labelselect.style.display="inline";
+			sel.name="c";
+		}	
+		else
+		{
+			labelselect.style.display="none";
+			sel.name="i";
+		}
 	}
 </script>
 <link href="../css/viewAccounts.css" rel="stylesheet">
@@ -21,14 +34,12 @@
 <body>
 	<div id="content">
 		<div id="viewselect">
-			<div class="selecttitle">
-			<input type="radio" name="selectmethod" checked="checked" value="method1" class="method1"/>筛选查询
-			<input type="radio" name="selectmethod" value="method2" class="method2"/>统计查询
-			</div>
-			<div class="selectcolumn">
-				日期<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">
-				标签
-				<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="labelvalue">点击选择标签</span><b class="caret"></b></a>
+			<div class="selectcolumn1">
+				<select class="selecttext" onchange="consumeselect()" name="i">
+					<option value="income" selected="selected" onclick="incomeselected()">收入</option>
+					<option value="pay" onclick="consumselected()">支出</option>
+				</select>
+				<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="labelvalue">点击选择标签</span></a>
 				<section class="dropdown-menu mega-menu-2 transition">
 					<ul class="add-bottom-space">
 						<li class="nav-title">餐饮</li>
@@ -67,9 +78,10 @@
 				</section>
 				</span><!-- Regular Menu Ends -->
 			</div>
-			<div class="selectcolumn">
+			<div class="selectcolumn2">
 				起止时间：<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">~<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">
 			</div>
+			<input type="button" value="查询" class="selectcolum3">
 		</div>
 		<div id="viewcontent">
 		</div>
@@ -79,4 +91,4 @@
 		</div>
 	</div>
 </body>
-</html>
+</html> 

@@ -10,10 +10,7 @@
 	height:900px}
 	#viewselect{
 	border-bottom:#000000 dashed thin;
-	height:50px}
-	#viewselect .selectcolumn{
-	width:340px;
-	float:left}
+	height:31px}
 	#changepage{
 	background-color:#CCCCCC;
 	margin-top:824px}
@@ -34,35 +31,39 @@
 	.next{
 	margin-left:30px;
 	}
-	#viewselect select{
-	width:2px;
-	float:left
-	}
 	#viewselect input{
-	width:85px;
+	width:85px; display:
 	}
-	#viewselect .selectcolumn{
+	#viewselect .selectcolumn1{
+	width:180px;
 	float:left;
-	height:20px}
-	#viewselect .method1{
-	margin-left:0px;
-	margin-bottom:5px;
+	height:30px;
+	margin-right:40px;}
+	#viewselect .selectcolumn2{
+	width:280px;
+	float:left;
+	height:30px;
+	margin-right:40px;}
+	<!--查询按钮的布局-->
+	#viewselect .selectcolum3{
+	width:80px;
+	float:left;
+	height:25px;
+	margin:0px 10px 0px 10px;
 	}
-	#viewselect .method2{
-	margin-left:200px;
-	margin-bottom:5px}
 	#viewselect #selectdate{
 	height:15px;
 	margin-bottom:0px}
+	#viewselect .selecttext{
+	width:68px;
+	height:28px;
+	margin-right:20px
+	}
 	#viewselect #labelvalue{
-	height:15px;}
-	#viewselect .selecttext1{
-	margin-left:20px;
-	width:90px;
-	height:23px;
-	margin-bottom:0px}
-	#viewselect .selecttext2{
-	margin-left:40px;
-	width:90px;
-	height:23px;
-	margin-bottom:0px}
+	margin-bottom:0px;
+	font-size:14px;
+	display:none;
+	}
+	.nav-title{
+	color:#0000CC;
+	}
