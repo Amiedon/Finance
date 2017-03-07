@@ -8,38 +8,18 @@
 <script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script><!--日历脚本-->
 <script src="http://code.jquery.com/jquery-latest.js"></script><!--消费分类三级菜单脚本-->
 <script src="../js/bootstrap.min.js"></script><!--消费分类三级菜单脚本-->
-<script type="text/javascript">
-	 function selected(x){//点击标签的js脚本
-		var labelvaule=document.getElementById("labelvalue");
-		var labellist=document.getElementsByTagName("li");
-		labelvalue.innerHTML=labellist[x].innerHTML;
-	}
-	function consumeselect(){
-		var sel=document.getElementsByTagName("select")[0];
-		var labelselect=document.getElementById("labelvalue");
-		if(sel.name=="i")
-		{
-			labelselect.style.display="inline";
-			sel.name="c";
-		}	
-		else
-		{
-			labelselect.style.display="none";
-			sel.name="i";
-		}
-	}
-</script>
+<script src="../js/viewAccounts.js" type="text/javascript"></script>
 <link href="../css/viewAccounts.css" rel="stylesheet">
 </head>
 <body>
 	<div id="content">
-		<div id="viewselect">
+		<form id="viewselect" onsubmit="return check()">
 			<div class="selectcolumn1">
 				<select class="selecttext" onchange="consumeselect()" name="i">
 					<option value="income" selected="selected" onclick="incomeselected()">收入</option>
 					<option value="pay" onclick="consumselected()">支出</option>
 				</select>
-				<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="labelvalue">点击选择标签</span></a>
+				<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="labelvalue">点击添加标签</span></a>
 				<section class="dropdown-menu mega-menu-2 transition">
 					<ul class="add-bottom-space">
 						<li class="nav-title">餐饮</li>
@@ -49,7 +29,7 @@
 						<a href="#"><li onclick="selected(4)">其他餐饮</li></a>
 					</ul>
 					<ul class="add-bottom-space">
-						<li class="nav-title">运动交通</li>
+						<li class="nav-title">运动交通</li></a>
 						<a href="#"><li onclick="selected(6)">公共交通</li></a>
 						<a href="#"><li onclick="selected(7)">打车租车</li></a>
 						<a href="#"><li onclick="selected(8)">运动健身</li></a>
@@ -72,8 +52,11 @@
 					</ul>
 					<ul class="add-bottom-space">
 						<li class="nav-title"></li>
-						<a href="#"><li onclick="selected(22)">其他</li></a>
-						
+						<a href="#"><li onclick="selected(22)">其他</li></a>	
+					</ul>
+					<ul class="add-bottom-space">
+						<li class="nav-title"></li>
+						<a href="#"><li onclick="selected(24)" style="color:#FF6600">显示全部</li></a>	
 					</ul>
 				</section>
 				</span><!-- Regular Menu Ends -->
@@ -81,8 +64,8 @@
 			<div class="selectcolumn2">
 				起止时间：<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">~<input id="selectdate" class="Wdate" type="text" onClick="WdatePicker()">
 			</div>
-			<input type="button" value="查询" class="selectcolum3">
-		</div>
+			<input type="submit" value="查询" class="selectcolum3">
+		</form>
 		<div id="viewcontent">
 		</div>
 		<div id="changepage">
