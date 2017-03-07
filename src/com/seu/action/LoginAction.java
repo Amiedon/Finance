@@ -28,6 +28,7 @@ public class LoginAction extends HttpServlet {
         list = userDao.findSimpleResult("select * from user where username = ?",username);
         if(list.size()!=0) {
             if ((password.equals(list.get(0).getPassword())) && (list.get(0).getState()!=0)) {
+                request.getSession().setAttribute("user",list.get(0));//////list(0)是一个user对象，将他传递下去
                 System.out.println("登录成功!");
                 request.getRequestDispatcher("../html/index.html").forward(request,response);
             } else {
