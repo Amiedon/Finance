@@ -14,28 +14,28 @@
      
 	 function selected(x){//点击标签的js脚本
 	  
-		var lablevaule=document.getElementById("lablevalue");
-		var lablelist=document.getElementsByTagName("li");
-		lablevalue.value=lablelist[x].innerHTML;
+		var labelvaule=document.getElementById("labelvalue");
+		var labellist=document.getElementsByTagName("li");
+		labelvalue.value=labellist[x].innerHTML;
 	}
 	function check()
 	{
 		var bill=document.getElementsByTagName("input");
 		var billDate=bill[2];
-		var billLable=document.getElementById("lablevalue");
-		var billMoney=bill[3];
+		var billlabel=bill[3];
+		var billMoney=bill[4];
 		var showStr="";
 		if(billDate.value==""){
 			showStr+="“日期” ";
 		}
-		if("点击添加标签"==billLable.value){
+		if(bill[3].getAttribute("disabled")==null && "点击添加标签"==billlabel.value){<!--当选择为收入时，就不用输出label不为空。-->
 			showStr+="“标签”";
 		}
 		var reg=/^\d{1,}\.*\d{1,}$/;
 		if(billMoney.value=="" || !billMoney.value.match(reg)){
 			showStr+="”金额“";
 		}
-		if(showStr!="")
+		if(showStr!="")             
 		{
 			alert("请输入有效的"+showStr);
 			return false;
@@ -46,13 +46,13 @@
 	}
 	function payselected()
 	{
-		var lableadd=document.getElementById("lablevalue");
-		lableadd.removeAttribute("disabled");
+		var labeladd=document.getElementById("labelvalue");
+		labeladd.removeAttribute("disabled");
 	}
 	function incomeselected()
 	{
-		var lableadd=document.getElementById("lablevalue");
-		lableadd.disabled="disabled";
+		var labeladd=document.getElementById("labelvalue");
+		labeladd.disabled="disabled";
 	}
 </script>
 <body>
@@ -61,9 +61,9 @@
 		<h3 align="center">添加账目</h3>
 		<div><input onclick="payselected()" type="radio" checked="checked" name="consume" value="consume" class="consume"/>支出
 		<input onclick="incomeselected()" type="radio" name="consume" value="income" class="consume"/>收入</div>
-		<div><lable>日期：</label><input class="Wdate" type="text" onClick="WdatePicker()"></div><!--将日期记录加特效-->
-		<div><lable>标签：</label>
-			<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><input type="button" id="lablevalue" value="点击添加标签" dis></input></a>
+		<div><label>日期：</label><input class="Wdate" type="text" onClick="WdatePicker()"></div><!--将日期记录加特效-->
+		<div><label>标签：</label>
+			<span class="dropdown" id="labelinput"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><input type="button" id="labelvalue" value="点击添加标签" dis></input></a>
 				<section class="dropdown-menu mega-menu-2 transition">
 					<ul class="add-bottom-space">
 						<li class="nav-title">餐饮</li>
@@ -102,8 +102,8 @@
 				</section>
 			</span><!-- Regular Menu Ends -->
 		</div>	
-		<div><lable>金额：</label><input type="text" id="money" class="money"></input><span>元</span></div>
-		<div><lable>备注：</label><textarea class="textfield" id="comment" name="comment" cols="35" rows="5"></textarea></div>
+		<div><label>金额：</label><input type="text" id="money" class="money"></input><span>元</span></div>
+		<div><label>备注：</label><textarea class="textfield" id="comment" name="comment" cols="35" rows="5"></textarea></div>
 		<input type="submit" value="保存" class="button"></input>
 		<input onclick="location.reload()" type="button" value="重写" class="button"></input><!--重新加载-->
 	</form>
