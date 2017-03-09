@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="../css/userInformation.css" rel="stylesheet" type="text/css"/>
+<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script><!--日历脚本-->
+<script type="text/javascript" src="../js/userInformation.js" language="JavaScript"></script>
+</head>
+<body>
+	<div id="content">
+		<form method="post" onsubmit="return check()">
+		<div class="photobox">
+		<span class="boxtitle">头像设置</span>
+		  <div id="imgDiv">
+				<img id="img" src="" width="100" height="100" />
+		  </div>
+			<div class="imgtext">
+				<input name="imgA" type="file" id="txtSrc" onChange="setImagePreview(this,imgDiv,img);">
+			</div> 
+		</div>
+		
+		<div class="infobox">
+			<span class="boxtitle">基本信息</span>
+			<div class="boxtext">
+			<div class="baseinfoline"><input type="radio" name="sex" value="0"><span class="labelset">男</span>
+									<input type="radio" name="sex" value="1" checked="checked"><span class="labelset">女</span></div>
+			<div class="baseinfoline"><input></input><span id="nickname" class="labelset">昵称：</span></div>
+			<div class="baseinfoline"><input class="Wdate" style=" width:171px"  type="text" onClick="WdatePicker()"><span class="labelset">出生日期：</span></div><!--将日期记录加特效-->
+			<div class="baseinfoline">
+					<select>
+						<option value="highSchool">中学</option>
+						<option value="">大专</option>
+						<option value="" selected="selected">本科</option>
+						<option value="">硕士及以上</option>
+					</select>
+				<span class="labelset">学历：</span>
+			</div>
+			<div class="baseinfoline"><input></input><span class="labelset">在读学校：</span></div>
+			<div class="baseinfoline"><span style="margin-right:194px" class="labelset">个人介绍：</span><textarea class="textfield"cols="30" rows="5"></textarea></div>
+			</div>
+		</div>
+		<input type="submit" id="save" value="保存">
+		</form>
+	</div>
+</body>
+</html>
